@@ -31,6 +31,7 @@ export default class World
 
     update()
     {
+        if(this.canvas) this.canvas.update()
     }
 
     destroy()
