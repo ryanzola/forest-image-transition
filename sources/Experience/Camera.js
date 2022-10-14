@@ -75,7 +75,7 @@ export default class Camera
 
         // Apply coordinates
         this.instance.position.copy(this.modes[this.mode].instance.position)
-        this.instance.quaternion.copy(this.modes[this.mode].instance.quaternion)
+        // this.instance.quaternion.copy(this.modes[this.mode].instance.quaternion)
         this.instance.updateMatrixWorld() // To be used in projection
     }
 

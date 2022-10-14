@@ -1,17 +1,16 @@
 import { Vector2 } from 'three';
 
-import vertex from '../Shader/curtain/vertex.glsl'
-import fragment from '../Shader/curtain/fragment.glsl'
+import vertex from '../Shader/rgba/vertex.glsl'
+import fragment from '../Shader/rgba/fragment.glsl'
 
 /**
  * Curtain Shader
  */
 
-const CurtainShader = {
+const RGBAShader = {
 	uniforms: {
 		'tDiffuse': { value: null },
-		'uProgress': { value: 0.0 },
-		'uProgress1': { value: 0.0 },
+    'uProgress': { value: 0.0 },
 		'tSize': { value: new Vector2( 256, 256 ) },
 		'center': { value: new Vector2( 0.5, 0.5 ) },
 		'angle': { value: 1.57 },
@@ -21,4 +20,4 @@ const CurtainShader = {
 	fragmentShader: fragment
 };
 
-export { CurtainShader };
+export { RGBAShader };

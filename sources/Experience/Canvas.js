@@ -8,7 +8,16 @@ export default class Canvas {
     this.experience = new Experience()
     this.scene = this.experience.scene
     this.renderer = this.experience.renderer
+    this.debug = this.experience.debug
     this.config = this.experience.config
+    this.time = this.experience.time
+
+    // Debug
+    // if(this.debug)
+    // {
+    //     this.debugFolder = this.debug.addFolder('canvas')
+    // }
+
     this.resources = this.experience.resources
     this.textures = []
     this.groups = []
@@ -58,20 +67,25 @@ export default class Canvas {
         }
   
         let mesh = new THREE.Mesh(this.geometry, m)
-        mesh.position.z = (i + 1) * 100
+        mesh.position.z = (i + 1) * 300
         group.add(mesh)
         group.position.x = j * 2500
       }
     })
-
   }
 
   update() {
+    this.oscillator = Math.sin(this.time.elapsed * 0.0005) * 0.5 + 0.5;
+
     this.mouseTarget.lerp(this.mouse, 0.05)
     
     this.groups.forEach(g => {
       g.rotation.x = -this.mouseTarget.y * 0.3;
       g.rotation.y = -this.mouseTarget.x * 0.3;
+
+      g.children.forEach((m, i) => {
+        m.position.z = (i + 1) * 100 - this.oscillator * 200;
+      })
     })
   }
 }
