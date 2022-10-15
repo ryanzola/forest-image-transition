@@ -44,8 +44,6 @@ export default class Renderer {
         setInterval(() => {
             this.imageIndex = (this.imageIndex % 15)
             this.imageIndex = this.imageIndex + 1 === 15 ? 0 : ++this.imageIndex
-            console.log(this.imageIndex)
-
             this.runAnimation()
         }, 5000)
     }
